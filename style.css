@@ -65,6 +65,7 @@ p {
     margin-top: 30px;
     transition: 0.2s ease background-color,color;
     color: black;
+    color: white;
 }
 
 .cta:hover {
@@ -76,6 +77,7 @@ p {
     font-size: 3rem;
     text-transform: uppercase;
     color: black;
+    color: white;
 }
 
 .brand h1 span {
@@ -123,13 +125,14 @@ p {
     transform: scale(0.8);
 }
 
-#header .hamburger:after {
-    content: "";
+#header .hamburger::after {
+    content: " ";
     border: 3px solid white;
     height: 100%;
     width: 100%;
     position: absolute;
-    animation: hamburger-puls is ease infinite;
+    animation: hamburger-puls 1s ease infinite;
+
 }
 
 @keyframes hamburger-puls{
@@ -152,3 +155,393 @@ p {
     z-index: -1;
 }
 
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: "";
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: 0.3s ease top,bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+
+
+#header .navlist ul {
+    list-style: none;
+    background-color: rgb(32, 30, 29);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.3s ease left;
+}
+
+#header .navlist ul.active {
+    left: 0;
+}
+
+#header .navlist ul a {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    display: block;    
+    padding: 20px;
+}
+
+#header .navlist ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 59%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: 0.3s ease letter-apacing;
+}
+
+#header .navlist ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}   
+
+#header .navlist ul li:hover a {
+    color: crimson;
+}
+
+
+
+
+/* mobile sceern*/
+/* header  section */
+
+@media screen and (min-width: 1200px) {
+
+    #header .hamburger  {
+        display: none;
+    }
+
+    #header .navlist ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .navlist ul li {
+        display: inline-block;
+    }
+
+    #header .navlist ul a {
+        font-size: 1.8rem;
+    }
+
+    #header .navlist ul a::after {
+        display: none;
+    }
+
+}
+
+
+
+
+
+#hero {
+    background-image: url(/assets/images/background.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+#hero .hero {
+    max-width: 1200px;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#hero h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text-reveal 1s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes text-reveal {
+    100% {
+        color: white;
+    }
+
+}
+
+#hero h1:nth-child(1) {
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(2) {
+    animation-delay: 2s;
+}
+
+#hero h1:nth-child(3) {
+    animation: text-reveal-name 0.5s ease 1.6s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes text-reveal-name {
+    100% {
+        color: crimson;
+        font-weight: 500;
+    }
+}
+
+#hero h1 span {
+    background-color: crimson;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: text-reveal-box 1.9s ease;
+}
+
+@keyframes text-reveal-box {
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        left: 100%;
+        width: 0;
+    }
+
+}
+
+#hero h1:nth-child(1) span {
+    animation-delay: 0.7s;
+}
+
+#hero h1:nth-child(2) span {
+    animation-delay: 1.6s;
+}
+
+#hero h1:nth-child(3) span {
+    animation-delay: 2.7s;
+}
+
+
+
+
+
+
+
+/*   main img  animation */
+
+
+#img {
+    width: 25%;
+    height: 25%;
+    margin-left: 40%;
+    margin-top: 80px;
+    border: 2px solid black;
+    border-radius: 7px;
+    animation: float 5s ease-in-out infinite;
+}
+
+/* All-Side Floating Animation */
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(15px, -30px); /* Move right and up */
+    }
+    50% {
+        transform: translate(0px, -30px); /* Move up */
+    }
+    75% {
+        transform: translate(-35px, -15px); /* Move left and up */
+    }
+    100% {
+        transform: translate(0, 29px); /* Return to original position */
+    }
+}
+ */
+
+
+
+    
+
+/*  small sreeen */
+@media  screen and (min-width: 760px) {
+    .cta{
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+
+    .h1 .section-title {
+        font-size: 6rem;
+    }
+
+    #hero h1 {
+        font-size: 7rem;
+    }
+
+
+}
+
+#service .service {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#service .service-top {
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+
+#service .service-bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+#service .service-bot .icon{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+
+}
+
+#service .service-item h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: white;
+}
+
+#service .service-item p {
+    text-align: left;
+    color: white;
+    
+}
+
+#service .service-item {
+    flex-basis: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#service .service-item::after {
+    content: "";
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9; 
+    z-index: -1;
+}
+
+
+@media only screen and (min-width: 768px) {
+    #service .service-bot .service-item {
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+
+
+}
+
+@media only screen and (min-width: 1200px) {
+    #service .service-bot .service-item {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+}
+
+
+
+
+/*  projectb section */
+
+#Project .project {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+     
+}
+
+#Project .Project-header h1 {
+    margin-bottom: 50px;
+
+}
+
+#project .all-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+} 
