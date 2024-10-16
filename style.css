@@ -64,8 +64,8 @@ p {
     letter-spacing: 0.1rem;
     margin-top: 30px;
     transition: 0.2s ease background-color,color;
-    color: black;
-    color: white;
+    /* color: black;
+    color: white; */
 }
 
 .cta:hover {
@@ -78,6 +78,8 @@ p {
     text-transform: uppercase;
     color: black;
     color: white;
+
+    
 }
 
 .brand h1 span {
@@ -417,8 +419,10 @@ p {
     
 
 /*  small sreeen */
+
+
 @media  screen and (min-width: 760px) {
-    .cta{
+    .cta {
         font-size: 2.5rem;
         padding: 20px 60px;
     }
@@ -525,6 +529,32 @@ p {
 
 /*  projectb section */
 
+.ctap {
+    display: inline-block;
+    padding: 10px 30px;
+    /* background-color: transparent; */
+    background-color: black;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 250px;
+    transition: 0.2s ease background-color,color;
+    /* color: black; */
+    color: white; 
+    position: absolute;
+    left: 30px;
+    border-radius: 8px;
+}
+
+.ctap:hover {
+    color: white;
+    background-color: green;
+}
+
+
+
+
 #Project .project {
     flex-direction: column;
     max-width: 1200px;
@@ -538,10 +568,383 @@ p {
 
 }
 
-#project .all-project {
+#Project .all-project {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    
 
 } 
+
+#Project .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#Project .project-info {
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #29323c, #485563 100%);
+    color: white;
+}
+
+#Project .project-info h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#Project .project-info h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 10px;      
+}
+
+#Project .project-info p {
+    color: white;
+}
+
+#Project .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+#Project .project-img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    word-wrap: 100%;
+    background-image: linear-gradient(60deg, #29323c, #485563 100%);
+    opacity: 0.7;
+}
+
+#Project .project-img img {
+    transition: 0.3s ease transform;
+}
+
+#Project .project-item:hover .project-img img {
+    transform: scale(1.1);
+}
+
+@media  only screen and (min-width: 768px) {
+    #Project .project-item {
+        flex-direction: row;
+    }
+
+    #Project .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    #Project .project-item {
+        height: 300px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+        
+    }
+
+    #Project .all-project .project-item {
+        /* height: 100%; */
+    }
+
+    #Project .all-project .project-info {
+        height: 100%;
+    }
+    
+}
+
+
+/*  about  me section  */
+
+#about .about {
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+#about .col-left {
+    width: 250px;
+    height: 360px;
+}
+
+#about .col-right {
+    width: 100%;
+
+}
+
+#about .col-right h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin-bottom: 10px;
+}
+
+#about .col-right p {
+    margin-bottom: 20px;
+}
+
+#about .col-right .cta {
+    color: black;
+    margin-bottom: 50px;
+    padding: 10px 20px ;
+    font-size: 2rem;
+}
+
+#about .col-left .about-img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: 10px solid white;
+}
+
+#about .col-left .about-img::after {
+    content: "";
+    position: absolute;
+    border: 7px solid crimson;
+    top: 18px;
+    left: -33px;
+    height: 98%;
+    width: 98%;
+    z-index: -1;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    #about .about {
+        flex-direction: row;
+    }
+
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+
+    #about .about .col-left .about-img::after {
+        left: -45px;
+        top: 35px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid crimson;
+    }
+    
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+    #about .col-right h1 {
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+}
+
+/*   contact   */
+
+#contact .contact {
+    flex-direction: column;
+     max-width: 1200px;
+     margin: 0 auto;
+     width: 98%;
+}
+
+#contact .contact-items {
+    width: 100%;
+
+}
+
+#contact .contact-item {
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    transition: 0.3s ease box-shadow;
+}
+
+#contact .contact-item:hover {
+    box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+#contac .icon {
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
+
+#contact .contact-info h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#contact .contact-info h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 100vh;
+    }
+
+    #contact .contact-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    #contact .contact-item {
+        width: 30%;
+        margin: 0;
+        flex-direction: row;
+    }
+
+    #contact .contact-item .icon {
+        height: 100px;
+        width: 100px;
+        margin: 6px;
+    }
+
+    #contact .contact-item .icon img {
+        object-fit: cover;
+    }
+
+    #contact .contact-item .contact-info {
+        text-align: left;
+        width: 100%;
+        padding-left: 20px;
+
+    }
+
+     
+}
+
+/* footer   */
+
+#footer {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100% );
+}
+
+#footer .footer {
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+#footer h2 {
+    color: white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 0,1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+#footer .social-icons {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#footer .social-item {
+    height: 50px;
+    width: 50px;
+    margin: 0 5px;
+}
+
+#footer p {
+    color: white;
+    font-size: 1.8rem;
+}
+
+#footer .social-item img {
+    filter: grayscale(1);
+    transition: 0.3s ease filter;
+}
+
+#footer .social-item:hover img {
+    filter: grayscale(0);
+}
+
+
+
+
+
+/*    cube */
+
+
+
+  
+  .cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: spin 5s infinite linear;
+  }
+  
+  .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  /* Front face */
+  .front  { transform: rotateY(  0deg) translateZ(100px); background: #ff5733; }
+  /* Back face */
+  .back   { transform: rotateY(180deg) translateZ(100px); background: #33c0ff; }
+  /* Left face */
+  .left   { transform: rotateY(-90deg) translateZ(100px); background: #33ff57; }
+  /* Right face */
+  .right  { transform: rotateY( 90deg) translateZ(100px); background: #ff33a8; }
+  /* Top face */
+  .top    { transform: rotateX( 90deg) translateZ(100px); background: #ffdb33; }
+  /* Bottom face */
+  .bottom { transform: rotateX(-90deg) translateZ(100px); background: #5b33ff; }
+  
+  /* Cube spinning animation */
+  @keyframes spin {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to   { transform: rotateX(360deg) rotateY(360deg); }
+  }
+  
